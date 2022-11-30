@@ -1,4 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <menuitem name="Examen de odoo" id="examen_menu_root"/>
+    <menuitem name="vehiculo" id="vehiculo_menu" parent="examen_menu_root" action="vehiculo_action"/>
+    <menuitem name="conductor" id="conductor_menu" parent="examen_menu_root"/>
+    <menuitem name="seguro" id="seguro_menu" parent="examen_menu_root"/>
+    <menuitem name="viaje" id="viaje_menu" parent="examen_menu_root"/>
+    <menuitem name="provincia" id="provincia_menu" parent="examen_menu_root"/>
+
+    <record model="ir.actions.act_window" id="vehiculo_action">
+        <field name="name">vehiculo</field>
+        <field name="res_model">examen.vehiculo</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--Tree y Forms vehiculo.py-->
+    <record id="vehiculo_tree_view" model="ir.ui.view">
+        <field name="name">vehiculo.tree</field>
+        <field name="model">examen.vehiculo</field>
+        <field name="arch" type="xml">
+            <tree string="Lista de coches">
+                <field name="marca"/>
+                <field name="color"/>
+                <field name="cantidad_de_asientos"/>
+                <field name="conductor"/>
+                <field name="viajes"/>
+                <field name="seguro"/>
+            </tree>
+        </field>
+    </record>
+    <record model="ir.ui.view" id="vehiculo_form_view">
+        <field name="name">vehiculo.form</field>
+        <field name="model">examen.vehiculo</field>
+        <field name="arch" type="xml">
+            <form string="formulario de coches">
+                <sheet>
+                    <group>
+                        <field name="marca"/>
+                        <field name="color"/>
+                        <field name="cantidad_de_asientos"/>
+                        <field name="conductor"/>
+                        <field name="viajes"/>
+                        <field name="seguro"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
 </odoo>

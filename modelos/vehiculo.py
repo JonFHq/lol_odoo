@@ -10,5 +10,5 @@ class vehiculo(models.Model):
     color = fields.Char(string="Color", required=True)
     cantidad_de_asientos = fields.Integer(String="Cantidad de asientos", required=True)
     conductor = fields.Many2one("examen.conductor", string="Conductor", required=True)
-    viaje = fields.One2many("examen.viaje", "vehiculo", string="Viaje", required=True)
+    viajes = fields.One2many("examen.viaje", "vehiculo", string="Viajes", required=True)
     seguro = fields.Reference(selection=[('examen.seguro', 'Seguro')], string="Seguro", required=True)
